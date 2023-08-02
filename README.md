@@ -93,3 +93,6 @@ https://testing-library.com/docs/queries/about/#priority
 
 테스팅 라이브러리에서 역할(Role)에 대한 접근성 참고 페이지
 https://www.w3.org/TR/wai-aria/#role_definitions
+
+커스텀 matcher 함수에 무엇이 있는지 참고할 페이지
+https://github.com/testing-library/jest-dom
