@@ -1,10 +1,8 @@
-import { render, screen } from "@testing-library/react";
-import { logRoles } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
-test("처음 버튼 색상이 옳게 되어있는가?", () => {
-    const { container } = render(<App />);
-    logRoles(container);
+test("버튼의 초기 색상이 바른지 확인하고, 클릭시 업데이트 되는지 확인", () => {
+    render(<App />);
 
     // 이 테스트 문구로 버튼 여부와 텍스트가 파란색으로 변경인지 확인한다.
     const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
@@ -18,6 +16,15 @@ test("처음 버튼 색상이 옳게 되어있는가?", () => {
     // expect(colorButton).toHaveStyle({
     //     backgroundColor: "I can put anything I want in here",
     // });
-});
 
-test("버튼 클릭시 블루 색상으로 바뀌는가?", () => {});
+    // 버튼 클릭
+    fireEvent.click(colorButton);
+
+    // 백그라운드 컬러가 파란색인지 테스트한다.
+    expect(colorButton).toHaveStyle({
+        "background-color": "blue",
+    });
+
+    // 텍스트는 '빨간색으로 변경'으로 변경됐는지 테스트한다.
+    expect(colorButton).toHaveTextContent("빨간색으로 변경");
+});
