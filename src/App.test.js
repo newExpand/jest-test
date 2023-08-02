@@ -1,8 +1,10 @@
 import { render, screen } from "@testing-library/react";
+import { logRoles } from "@testing-library/react";
 import App from "./App";
 
 test("처음 버튼 색상이 옳게 되어있는가?", () => {
-    render(<App />);
+    const { container } = render(<App />);
+    logRoles(container);
 
     // 이 테스트 문구로 버튼 여부와 텍스트가 파란색으로 변경인지 확인한다.
     const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
