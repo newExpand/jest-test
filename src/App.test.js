@@ -39,3 +39,33 @@ test("초기 상태", () => {
     const checkbox = screen.getByRole("checkbox");
     expect(checkbox).not.toBeChecked();
 });
+
+test("체크박스 활성화 시 버튼 비활성화 테스트", () => {
+    render(<App />);
+
+    // 체크박스를 클릭합니다.
+    const checkbox = screen.getByRole("checkbox");
+    fireEvent.click(checkbox);
+
+    // 버튼이 비활성화 되었는지 테스트 합니다.
+    const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
+    expect(colorButton).toBeDisabled();
+});
+
+test("체크박스 비활성화 시 버튼 활성화 테스트", () => {
+    render(<App />);
+    const checkbox = screen.getByRole("checkbox");
+    const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
+
+    // 체크박스를 체크해 활성화 시킵니다.
+    fireEvent.click(checkbox);
+
+    // 체크박스가 활성화 되어있는지 테스트 합니다.
+    expect(checkbox).toBeChecked();
+
+    // 체크박스를 다시 클릭합니다.
+    fireEvent.click(checkbox);
+
+    // 버튼이 활성화 되었는지 테스트 합니다.
+    expect(colorButton).toBeEnabled();
+});
