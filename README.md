@@ -96,3 +96,14 @@ https://www.w3.org/TR/wai-aria/#role_definitions
 
 커스텀 matcher 함수에 무엇이 있는지 참고할 페이지
 https://github.com/testing-library/jest-dom
+
+### import를 가져온 css module에서 스타일 테스트
+
+지금 테스트 하는 방법 중 스타일을 테스트 할때 .toHaveStyle() 적용했지만, 해당 mather는 import한 css에 작동하지 않는다.
+테스트에서 스타일을 해석하는 방법으로 라이브러리를 사용하는 방법과 toHaveClass를 이용하여 클래스 이름으로 테스트 하는 방법이 있다.
+
+https://www.npmjs.com/package/jest-transform-css
+
+https://www.npmjs.com/package/jest-css-modules-transform
+
+위 링크는 jest에서 스타일 해석에 도움을 주는 라이브러리 이다.
