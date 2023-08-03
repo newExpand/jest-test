@@ -28,3 +28,14 @@ test("버튼의 초기 색상이 바른지 확인하고, 클릭시 업데이트 
     // 텍스트는 '빨간색으로 변경'으로 변경됐는지 테스트한다.
     expect(colorButton).toHaveTextContent("빨간색으로 변경");
 });
+
+test("초기 상태", () => {
+    render(<App />);
+    // 버튼이 활성화 상태로 시작하는지 테스트합니다.
+    const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
+    expect(colorButton).toBeEnabled();
+
+    // 체크박스가 체크가 안된 상태로 시작하는지 테스트 합니다.
+    const checkbox = screen.getByRole("checkbox");
+    expect(checkbox).not.toBeChecked();
+});

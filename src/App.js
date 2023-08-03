@@ -14,6 +14,7 @@ function App() {
             >
                 {newButtonText}으로 변경
             </button>
+            <input type="checkbox" />
         </div>
     );
 }
