@@ -6,10 +6,10 @@ export function replaceCamelWithSpaces(colorName) {
 }
 
 function App() {
-    const [buttonColor, setButtonColor] = useState("red");
+    const [buttonColor, setButtonColor] = useState("MediumVioletRed");
     const [checkedCheckbox, setCheckedCheckbox] = useState(false);
-    const newButtonColor = buttonColor === "red" ? "blue" : "red";
-    const newButtonText = buttonColor === "red" ? "파란색" : "빨간색";
+    const newButtonColor =
+        buttonColor === "MediumVioletRed" ? "MidnightBlue" : "MediumVioletRed";
 
     return (
         <div>
@@ -18,7 +18,7 @@ function App() {
                 onClick={() => setButtonColor(newButtonColor)}
                 disabled={checkedCheckbox}
             >
-                {newButtonText}으로 변경
+                {replaceCamelWithSpaces(newButtonColor)}로 변경
             </button>
             <input
                 type="checkbox"
