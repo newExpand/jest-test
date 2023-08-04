@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "./App";
+import App, { replaceCamelWithSpaces } from "./App";
 
 test("버튼의 초기 색상이 바른지 확인하고, 클릭시 업데이트 되는지 확인", () => {
     render(<App />);
@@ -109,4 +109,18 @@ test("버튼이 파란색일 때 비활성화시 테스트", () => {
     // 다시 활성화 시킵니다.
     fireEvent.click(checkbox);
     expect(colorButton).toHaveStyle({ "background-color": "blue" });
+});
+
+describe("카멜 케이스 대문자 앞에 공백을 삽입하는 테스트", () => {
+    test("대문자가 아예 없는 경우", () => {
+        expect(replaceCamelWithSpaces("Red")).toBe("Red");
+    });
+
+    test("대문자가 한개 있는 경우", () => {
+        expect(replaceCamelWithSpaces("MidnightBlue")).toBe("Midnight Blue");
+    });
+
+    test("대문자가 여러개 있는 경우", () => {
+        expect(replaceCamelWithSpaces("MediumVioletRed")).toBe("Medium Violet Red");
+    });
 });
