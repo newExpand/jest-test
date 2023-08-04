@@ -107,3 +107,22 @@ https://www.npmjs.com/package/jest-transform-css
 https://www.npmjs.com/package/jest-css-modules-transform
 
 위 링크는 jest에서 스타일 해석에 도움을 주는 라이브러리 이다.
+
+### eslint test library와 연동
+
+1. 필요한 라이브러리 설치
+   npm install eslint-plugin-testing-library eslint-plugin-jest-dom
+2. package.json **eslintConfig** 코드 삭제
+3. .eslintrc.json 파일 생성
+4. eslint 익스텐션 설치 안돼있다면 설치
+5. .vscode 폴더 생성 후 settings.json 파일 생성
+    - "editor.codeActionsOnSave": { "source.fixAll.eslint": true } 코드 추가
+6. .vscode gitignore에 추가
+
+### prettier 연동
+
+1. prettier 익스텐션이 없다면 설치
+2. eslint때 만들어 놓은 settings.json 파일에
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "editor.formatOnSave": true
+   코드 추가
