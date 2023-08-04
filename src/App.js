@@ -22,6 +22,7 @@ function App() {
                 defaultChecked={checkedCheckbox}
                 onChange={(e) => setCheckedCheckbox(e.target.checked)}
             />
+            <label htmlFor="disabled-button-checkbox">버튼 비활성화</label>
         </div>
     );
 }

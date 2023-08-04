@@ -54,7 +54,7 @@ test("체크박스 활성화 시 버튼 비활성화 테스트", () => {
 
 test("체크박스 비활성화 시 버튼 활성화 테스트", () => {
     render(<App />);
-    const checkbox = screen.getByRole("checkbox");
+    const checkbox = screen.getByRole("checkbox", { name: "버튼 비활성화" });
     const colorButton = screen.getByRole("button", { name: "파란색으로 변경" });
 
     // 체크박스를 체크해 활성화 시킵니다.
